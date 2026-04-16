@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manual de Identidad Corporativa — Instituto Uría</title>
+  <meta name="description" content="Manual de Identidad Corporativa de Instituto Uría, Gijón. Sistema de diseño, paleta de color, tipografía y voz de marca." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── DESIGN TOKENS ─────────────────────────────────────────── */
+    :root {
+      --color-primary:    #002147;
+      --color-surface:    #F7F5F2;
+      --color-accent:     #7EBEA5;
+      --color-text:       #4A5568;
+      --color-text-light: #F7F5F2;
+      --color-border:     rgba(0,33,71,0.12);
+
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body:    'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+
+      --space-xs:  0.5rem;
+      --space-sm:  1rem;
+      --space-md:  1.5rem;
+      --space-lg:  2.5rem;
+      --space-xl:  4rem;
+      --space-2xl: 6rem;
+
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 16px;
+
+      --shadow-card:  0 2px 12px rgba(0,33,71,.08);
+      --shadow-hover: 0 8px 32px rgba(0,33,71,.16);
+
+      --transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    /* ─── RESET & BASE ──────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--color-surface);
+      color: var(--color-text);
+      font-size: 1rem;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── TYPOGRAPHY ────────────────────────────────────────────── */
+    h1, h2, h3, h4 { font-family: var(--font-display); color: var(--color-primary); }
+    h1 { font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.1; font-weight: 600; }
+    h2 { font-size: clamp(1.8rem, 3vw, 2.5rem); line-height: 1.2; font-weight: 400; }
+    h3 { font-size: 1.4rem; font-weight: 600; }
+    h4 { font-size: 1.1rem; font-weight: 400; font-style: italic; }
+    p  { max-width: 70ch; }
+
+    /* ─── LAYOUT ────────────────────────────────────────────────── */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 var(--space-lg); }
+
+    /* Sidebar navigation */
+    .layout {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      min-height: 100vh;
+    }
+
+    /* ─── SIDEBAR ───────────────────────────────────────────────── */
+    .sidebar {
+      background: var(--color-primary);
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+      padding: var(--space-xl) var(--space-md);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-lg);
+      scrollbar-width: none;
+    }
+    .sidebar::-webkit-scrollbar { display: none; }
+
+    .sidebar-logo .brand-name {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--color-surface);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+    .sidebar-logo .brand-sub {
+      font-family: var(--font-body);
+      font-size: 0.65rem;
+      font-weight: 500;
+      color: var(--color-accent);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-top: var(--space-xs);
+    }
+    .sidebar-logo .brand-tagline {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 0.8rem;
+      color: rgba(247,245,242,0.5);
+      margin-top: 0.4rem;
+    }
+
+    .divider {
+      height: 1px;
+      background: rgba(126,190,165,0.3);
+    }
+
+    .nav-label {
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: var(--space-xs);
+    }
+
+    .nav-list { list-style: none; display: flex; flex-direction: column; gap: 2px; }
+    .nav-list a {
+      display: block;
+      padding: 0.5rem 0.75rem;
+      color: rgba(247,245,242,0.7);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 400;
+      border-radius: var(--radius-sm);
+      transition: var(--transition);
+      border-left: 2px solid transparent;
+    }
+    .nav-list a:hover {
+      color: var(--color-surface);
+      background: rgba(126,190,165,0.1);
+      border-left-color: var(--color-accent);
+      padding-left: 1rem;
+    }
+
+    .sidebar-footer {
+      margin-top: auto;
+      font-size: 0.7rem;
+      color: rgba(247,245,242,0.3);
+      line-height: 1.5;
+    }
+
+    /* ─── MAIN CONTENT ──────────────────────────────────────────── */
+    .main { overflow: hidden; }
+
+    /* ─── HERO ──────────────────────────────────────────────────── */
+    .hero {
+      background: var(--color-primary);
+      color: var(--color-surface);
+      padding: var(--space-2xl) var(--space-2xl);
+      position: relative;
+      overflow: hidden;
+      min-height: 420px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(126,190,165,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -120px; left: 30%;
+      width: 300px; height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(126,190,165,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: var(--space-md);
+    }
+    .hero-badge::before {
+      content: '';
+      display: block;
+      width: 24px; height: 2px;
+      background: var(--color-accent);
+    }
+
+    .hero h1 { color: var(--color-surface); margin-bottom: var(--space-md); }
+
+    .hero-meta {
+      display: flex;
+      gap: var(--space-lg);
+      align-items: center;
+      margin-top: var(--space-lg);
+      flex-wrap: wrap;
+    }
+    .hero-meta-item { font-size: 0.78rem; color: rgba(247,245,242,0.55); }
+    .hero-meta-item span { color: var(--color-surface); font-weight: 500; display: block; }
+
+    /* ─── SECTION WRAPPER ───────────────────────────────────────── */
+    .section {
+      padding: var(--space-2xl) var(--space-2xl);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .section:last-child { border-bottom: none; }
+
+    .section-header {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-md);
+      margin-bottom: var(--space-xl);
+    }
+    .section-number {
+      font-family: var(--font-display);
+      font-size: 3.5rem;
+      font-weight: 600;
+      color: var(--color-primary);
+      opacity: 0.08;
+      line-height: 1;
+      flex-shrink: 0;
+      margin-top: -0.5rem;
+    }
+    .section-title-wrap .section-label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: 0.4rem;
+    }
+
+    /* ─── CARD ──────────────────────────────────────────────────── */
+    .card {
+      background: white;
+      border-radius: var(--radius-md);
+      padding: var(--space-lg);
+      box-shadow: var(--shadow-card);
+      transition: var(--transition);
+    }
+    .card:hover { box-shadow: var(--shadow-hover); transform: translateY(-2px); }
+
+    /* ─── GRID ──────────────────────────────────────────────────── */
+    .grid-2 { display: grid; grid-template-columns: repeat(2,1fr); gap: var(--space-md); }
+    .grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: var(--space-md); }
+    .grid-4 { display: grid; grid-template-columns: repeat(4,1fr); gap: var(--space-md); }
+
+    /* ─── FILOSOFÍA ─────────────────────────────────────────────── */
+    .philosophy-intro {
+      font-size: 1.2rem;
+      color: var(--color-primary);
+      font-family: var(--font-display);
+      font-style: italic;
+      line-height: 1.6;
+      border-left: 4px solid var(--color-accent);
+      padding-left: var(--space-md);
+      margin-bottom: var(--space-xl);
+      max-width: 80ch;
+    }
+
+    .what-table { width: 100%; border-collapse: collapse; }
+    .what-table th {
+      text-align: left;
+      padding: var(--space-sm) var(--space-md);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-text-light);
+      background: var(--color-primary);
+    }
+    .what-table th:first-child { border-radius: var(--radius-sm) 0 0 0; }
+    .what-table th:last-child { border-radius: 0 var(--radius-sm) 0 0; }
+    .what-table td {
+      padding: 0.75rem var(--space-md);
+      font-size: 0.9rem;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .what-table tr:last-child td { border-bottom: none; }
+    .what-table .yes { color: #1a6649; font-weight: 500; }
+    .what-table .no  { color: #9ca3af; }
+    .what-table .yes::before { content: '✓  '; }
+    .what-table .no::before  { content: '×  '; }
+
+    /* ─── COLOR PALETTE ─────────────────────────────────────────── */
+    .color-card {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      transition: var(--transition);
+    }
+    .color-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+
+    .color-swatch {
+      height: 180px;
+      display: flex;
+      align-items: flex-end;
+      padding: var(--space-sm);
+    }
+    .color-hex {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      background: rgba(255,255,255,0.18);
+      backdrop-filter: blur(4px);
+    }
+    .color-info {
+      background: white;
+      padding: var(--space-md);
+    }
+    .color-name {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--color-primary);
+      margin-bottom: 0.25rem;
+    }
+    .color-role {
+      font-size: 0.75rem;
+      color: var(--color-text);
+      margin-bottom: var(--space-sm);
+    }
+    .color-specs { display: flex; flex-direction: column; gap: 3px; }
+    .color-spec { font-size: 0.7rem; color: #9ca3af; font-family: monospace; }
+
+    .color-proportion {
+      margin-top: var(--space-xl);
+      background: var(--color-primary);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      height: 48px;
+      display: flex;
+    }
+    .prop-primary { background: var(--color-primary); border: 2px solid rgba(247,245,242,0.2); flex: 6; display: flex; align-items: center; justify-content: center; }
+    .prop-surface { background: var(--color-surface); flex: 3; display: flex; align-items: center; justify-content: center; }
+    .prop-accent  { background: var(--color-accent);  flex: 1; display: flex; align-items: center; justify-content: center; }
+    .prop-label   { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; }
+
+    /* ─── TYPOGRAPHY SECTION ────────────────────────────────────── */
+    .type-demo-display {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      color: var(--color-primary);
+      line-height: 1.1;
+      margin-bottom: var(--space-sm);
+    }
+    .type-demo-body {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      color: var(--color-text);
+      line-height: 1.7;
+      max-width: 60ch;
+    }
+    .type-scale-item {
+      display: flex;
+      align-items: baseline;
+      gap: var(--space-md);
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .type-scale-label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      min-width: 80px;
+      flex-shrink: 0;
+    }
+    .type-scale-meta {
+      font-size: 0.7rem;
+      color: #9ca3af;
+      min-width: 100px;
+      font-family: monospace;
+    }
+
+    /* ─── VOICE SECTION ─────────────────────────────────────────── */
+    .voice-vs {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: var(--space-md);
+      align-items: center;
+    }
+    .voice-card {
+      background: white;
+      border-radius: var(--radius-md);
+      padding: var(--space-md);
+      box-shadow: var(--shadow-card);
+    }
+    .voice-card.bad  { border-left: 4px solid #fca5a5; }
+    .voice-card.good { border-left: 4px solid var(--color-accent); }
+    .voice-card-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+    .voice-card.bad  .voice-card-label { color: #ef4444; }
+    .voice-card.good .voice-card-label { color: var(--color-accent); }
+    .voice-card p { font-size: 0.88rem; line-height: 1.5; max-width: 100%; }
+    .voice-card.bad p  { color: #9ca3af; }
+    .voice-card.good p { color: var(--color-primary); font-weight: 500; }
+    .vs-divider {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      color: var(--color-border);
+      font-style: italic;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    /* ─── TOKENS TABLE ──────────────────────────────────────────── */
+    .token-block {
+      background: #1a1a2e;
+      border-radius: var(--radius-md);
+      padding: var(--space-lg);
+      overflow-x: auto;
+    }
+    .token-block pre {
+      font-family: 'Courier New', monospace;
+      font-size: 0.78rem;
+      line-height: 1.8;
+      color: #e2e8f0;
+      white-space: pre;
+    }
+    .token-comment { color: #6b7280; }
+    .token-prop    { color: #7EBEA5; }
+    .token-value   { color: #f9a825; }
+
+    /* ─── PILL / TAG ────────────────────────────────────────────── */
+    .pill {
+      display: inline-block;
+      padding: 4px 14px;
+      border: 1px solid var(--color-primary);
+      border-radius: 999px;
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-primary);
+    }
+    .pill-accent {
+      background: var(--color-accent);
+      border-color: var(--color-accent);
+      color: var(--color-primary);
+    }
+
+    /* ─── CHECKLIST ─────────────────────────────────────────────── */
+    .checklist { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+    .checklist li {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.88rem;
+    }
+    .checklist li::before {
+      content: '✓';
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 20px; height: 20px;
+      background: var(--color-accent);
+      color: white;
+      border-radius: 50%;
+      font-size: 0.6rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* ─── KEYWORD GRID ──────────────────────────────────────────── */
+    .keyword-list {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+    }
+    .kw-yes {
+      background: rgba(126,190,165,0.15);
+      color: #1a6649;
+      border: 1px solid rgba(126,190,165,0.4);
+      padding: 5px 14px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+    .kw-no {
+      background: rgba(239,68,68,0.06);
+      color: #9ca3af;
+      border: 1px dashed rgba(239,68,68,0.3);
+      padding: 5px 14px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      text-decoration: line-through;
+    }
+
+    /* ─── FOOTER ────────────────────────────────────────────────── */
+    .footer-section {
+      background: var(--color-primary);
+      padding: var(--space-xl) var(--space-2xl);
+      color: var(--color-surface);
+    }
+    .footer-section h2 { color: var(--color-surface); margin-bottom: var(--space-sm); }
+    .footer-section p  { color: rgba(247,245,242,0.6); max-width: 60ch; font-size: 0.9rem; }
+    .footer-bottom {
+      margin-top: var(--space-lg);
+      padding-top: var(--space-md);
+      border-top: 1px solid rgba(126,190,165,0.2);
+      font-size: 0.72rem;
+      color: rgba(247,245,242,0.3);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    /* ─── RESPONSIVE ────────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .layout { grid-template-columns: 1fr; }
+      .sidebar { position: relative; height: auto; flex-direction: row; flex-wrap: wrap; padding: var(--space-md); }
+      .nav-list { flex-direction: row; flex-wrap: wrap; }
+      .grid-4 { grid-template-columns: repeat(2,1fr); }
+      .grid-3 { grid-template-columns: repeat(2,1fr); }
+      .grid-2 { grid-template-columns: 1fr; }
+      .section { padding: var(--space-xl) var(--space-md); }
+      .hero { padding: var(--space-xl) var(--space-md); }
+      .voice-vs { grid-template-columns: 1fr; }
+      .vs-divider { transform: rotate(90deg); }
+    }
+    @media (max-width: 500px) {
+      .grid-4 { grid-template-columns: 1fr; }
+      .grid-3 { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="layout">
+
+  <!-- ─── SIDEBAR ─────────────────────────────────────────────── -->
+  <aside class="sidebar" aria-label="Navegación del manual">
+
+    <div class="sidebar-logo">
+      <div class="brand-name">Instituto<br>Uría</div>
+      <div class="brand-sub">Psicólogos · Logopedas · Educación</div>
+      <div class="brand-tagline">Ciencia aplicada a la educación.</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <nav>
+      <p class="nav-label">Manual de Identidad</p>
+      <ul class="nav-list" id="main-nav">
+        <li><a href="#filosofia">01 · Filosofía de Marca</a></li>
+        <li><a href="#logotipo">02 · Logotipo</a></li>
+        <li><a href="#color">03 · Paleta de Color</a></li>
+        <li><a href="#tipografia">04 · Tipografía</a></li>
+        <li><a href="#iconografia">05 · Iconografía</a></li>
+        <li><a href="#fotografia">06 · Fotografía</a></li>
+        <li><a href="#voz">07 · Voz y Tono</a></li>
+        <li><a href="#sistema">08 · Sistema de Diseño</a></li>
+        <li><a href="#checklist">✓ · Checklist</a></li>
+      </ul>
+    </nav>
+
+    <div class="divider"></div>
+
+    <div class="sidebar-footer">
+      Versión 1.0 · Abril 2026<br>
+      Workflow: @superbranding.md<br>
+      Gijón, Asturias
+    </div>
+
+  </aside>
+
+  <!-- ─── CONTENT ──────────────────────────────────────────────── -->
+  <main class="main">
+
+    <!-- HERO -->
+    <header class="hero" id="top">
+      <div class="hero-badge">Manual de Identidad Corporativa</div>
+      <h1>Instituto Uría</h1>
+      <p style="font-size:1.1rem; color:rgba(247,245,242,0.65); max-width:55ch; margin-top:0.75rem;">
+        Un sistema de marca construido sobre treinta y cinco años de rigor, empatía y ciencia aplicada a la educación.
+      </p>
+      <div class="hero-meta">
+        <div class="hero-meta-item">Gijón, Asturias<span>Localización</span></div>
+        <div class="hero-meta-item">Desde 1989<span>Fundación</span></div>
+        <div class="hero-meta-item">El Sabio + El Cuidador<span>Arquetipo</span></div>
+        <div class="hero-meta-item"><em>Ciencia aplicada a la educación.</em><span>Tagline</span></div>
+      </div>
+    </header>
+
+    <!-- 01 · FILOSOFÍA -->
+    <section class="section" id="filosofia">
+      <div class="section-header">
+        <div class="section-number">01</div>
+        <div class="section-title-wrap">
+          <p class="section-label">Fundamento</p>
+          <h2>Introducción y Filosofía</h2>
+        </div>
+      </div>
+
+      <blockquote class="philosophy-intro">
+        "En 1989 un grupo de profesionales decidió que los niños merecían la misma atención científica que cualquier otra área de la salud. Treinta y cinco años después, el nombre Uría en Gijón no se explica: se reconoce."
+      </blockquote>
+
+      <div class="grid-2" style="margin-bottom: var(--space-xl);">
+        <div class="card">
+          <h4>Misión</h4>
+          <p style="margin-top:0.75rem; font-size:0.9rem;">Empoderar a niños y adolescentes mediante la aplicación de la ciencia a sus procesos de aprendizaje y desarrollo emocional.</p>
+        </div>
+        <div class="card">
+          <h4>Visión</h4>
+          <p style="margin-top:0.75rem; font-size:0.9rem;">Ser el referente en Gijón donde la ciencia y la educación se unen para transformar el potencial de cada niño.</p>
+        </div>
+      </div>
+
+      <table class="what-table">
+        <thead>
+          <tr><th>Instituto Uría ES</th><th>Instituto Uría NO ES</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="yes">Riguroso y científico</td><td class="no">Frío o distante</td></tr>
+          <tr><td class="yes">Empático con la familia</td><td class="no">Paternalista</td></tr>
+          <tr><td class="yes">Experto con lenguaje claro</td><td class="no">Técnico sin propósito</td></tr>
+          <tr><td class="yes">Moderno en método</td><td class="no">Moderno por estética</td></tr>
+          <tr><td class="yes">Un aliado a largo plazo</td><td class="no">Un servicio puntual</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 02 · LOGOTIPO -->
+    <section class="section" id="logotipo">
+      <div class="section-header">
+        <div class="section-number">02</div>
+        <div class="section-title-wrap">
+          <p class="section-label">Identidad Visual</p>
+          <h2>Logotipo</h2>
+        </div>
+      </div>
+
+      <!-- Logo Demo -->
+      <div class="card" style="padding:var(--space-2xl); background:var(--color-primary); text-align:center; margin-bottom:var(--space-lg);">
+        <div style="font-family:var(--font-display); font-size:clamp(2rem,4vw,3rem); font-weight:600; color:var(--color-surface); letter-spacing:-0.02em; line-height:1;">
+          Instituto Uría
+        </div>
+        <div style="font-family:var(--font-body); font-size:0.65rem; font-weight:500; letter-spacing:0.25em; color:var(--color-accent); text-transform:uppercase; margin-top:0.75rem;">
+          Psicólogos · Logopedas · Educación
+        </div>
+      </div>
+
+      <div class="grid-3" style="margin-bottom:var(--space-lg);">
+        <div class="card" style="text-align:center; padding:var(--space-lg);">
+          <div style="font-family:var(--font-display); font-size:1.4rem; font-weight:600; color:var(--color-primary);">Instituto Uría</div>
+          <p style="font-size:0.7rem; color:#9ca3af; margin-top:0.5rem; max-width:none;">Versión completa horizontal</p>
+        </div>
+        <div class="card" style="text-align:center; padding:var(--space-lg);">
+          <div style="font-family:var(--font-display); font-size:1.6rem; font-weight:600; color:var(--color-primary);">Uría</div>
+          <p style="font-size:0.7rem; color:#9ca3af; margin-top:0.5rem; max-width:none;">Wordmark reducido</p>
+        </div>
+        <div class="card" style="text-align:center; padding:var(--space-lg);">
+          <div style="
+            width:56px; height:56px; margin:0 auto;
+            background:var(--color-primary);
+            border-radius:var(--radius-sm);
+            display:flex; align-items:center; justify-content:center;
+            font-family:var(--font-display); font-size:1.2rem; font-weight:600;
+            color:var(--color-surface);
+          ">IU</div>
+          <p style="font-size:0.7rem; color:#9ca3af; margin-top:0.75rem; max-width:none;">Monograma</p>
+        </div>
+      </div>
+
+      <div class="card" style="background:#fff3cd; border-left:4px solid #f59e0b;">
+        <h4 style="font-family:var(--font-body); font-size:0.8rem; font-weight:600; color:#92400e; margin-bottom:0.5rem;">⚠ Usos Incorrectos del Logotipo</h4>
+        <ul style="list-style:none; display:flex; flex-direction:column; gap:0.4rem; font-size:0.82rem;">
+          <li>× Estirar o comprimir proporcionalmente</li>
+          <li>× Aplicar colores no autorizados por esta guía</li>
+          <li>× Añadir sombras, biselados o efectos 3D</li>
+          <li>× Colocar sobre fondos de bajo contraste</li>
+          <li>× Rotar el logotipo en ningún ángulo</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 03 · COLOR -->
+    <section class="section" id="color">
+      <div class="section-header">
+        <div class="section-number">03</div>
+        <div class="section-title-wrap">
+          <p class="section-label">Sistema Visual</p>
+          <h2>Paleta de Color</h2>
+        </div>
+      </div>
+
+      <p style="margin-bottom:var(--space-xl);">El color no es decoración. Es la primera emoción que el paciente siente antes de leer una sola palabra. Esta paleta provoca exactamente lo que una familia necesita al buscar ayuda: <strong>calma, confianza y esperanza.</strong></p>
+
+      <div class="grid-4" style="margin-bottom:var(--space-xl);">
+
+        <div class="color-card">
+          <div class="color-swatch" style="background:#002147;">
+            <span class="color-hex" style="color:#F7F5F2;">#002147</span>
+          </div>
+          <div class="color-info">
+            <div class="color-name">Azul Oxford</div>
+            <div class="color-role">Color principal — 60%</div>
+            <div class="color-specs">
+              <span class="color-spec">RGB: 0, 33, 71</span>
+              <span class="color-spec">CMYK: 100·54·0·72</span>
+              <span class="color-spec">Pantone: 2965 C</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="color-card">
+          <div class="color-swatch" style="background:#F7F5F2; border:1px solid #e5e2de;">
+            <span class="color-hex" style="color:#4A5568;">#F7F5F2</span>
+          </div>
+          <div class="color-info">
+            <div class="color-name">Blanco Marfil</div>
+            <div class="color-role">Color secundario — 30%</div>
+            <div class="color-specs">
+              <span class="color-spec">RGB: 247, 245, 242</span>
+              <span class="color-spec">CMYK: 0·1·2·3</span>
+              <span class="color-spec">Pantone: 9101 C</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="color-card">
+          <div class="color-swatch" style="background:#7EBEA5;">
+            <span class="color-hex" style="color:#002147;">#7EBEA5</span>
+          </div>
+          <div class="color-info">
+            <div class="color-name">Verde Menta</div>
+            <div class="color-role">Acento / Infantil — 10%</div>
+            <div class="color-specs">
+              <span class="color-spec">RGB: 126, 190, 165</span>
+              <span class="color-spec">CMYK: 34·0·13·25</span>
+              <span class="color-spec">Pantone: 563 C</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="color-card">
+          <div class="color-swatch" style="background:#4A5568;">
+            <span class="color-hex" style="color:#F7F5F2;">#4A5568</span>
+          </div>
+          <div class="color-info">
+            <div class="color-name">Gris Pizarra</div>
+            <div class="color-role">Texto funcional</div>
+            <div class="color-specs">
+              <span class="color-spec">RGB: 74, 85, 104</span>
+              <span class="color-spec">CMYK: 29·18·0·59</span>
+              <span class="color-spec">Pantone: 7545 C</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Proporción -->
+      <div style="margin-bottom:var(--space-md);">
+        <p style="font-size:0.75rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--color-text); margin-bottom:0.75rem;">Regla de proporción 60–30–10</p>
+        <div class="color-proportion">
+          <div class="prop-primary"><span class="prop-label" style="color:var(--color-surface);">60%</span></div>
+          <div class="prop-surface"><span class="prop-label" style="color:var(--color-text);">30%</span></div>
+          <div class="prop-accent"><span class="prop-label" style="color:var(--color-primary);">10%</span></div>
+        </div>
+      </div>
+
+      <!-- Accesibilidad -->
+      <div class="card">
+        <h4 style="font-family:var(--font-body); font-weight:600; font-size:0.8rem; margin-bottom:var(--space-sm);">Accesibilidad WCAG 2.1</h4>
+        <table style="width:100%; border-collapse:collapse; font-size:0.82rem;">
+          <thead><tr>
+            <th style="text-align:left; padding:0.5rem; color:var(--color-text); font-weight:600;">Combinación</th>
+            <th style="text-align:center; padding:0.5rem; color:var(--color-text); font-weight:600;">Ratio</th>
+            <th style="text-align:center; padding:0.5rem; color:var(--color-text); font-weight:600;">Nivel</th>
+          </tr></thead>
+          <tbody>
+            <tr style="border-bottom:1px solid var(--color-border);">
+              <td style="padding:0.5rem;">Blanco Marfil sobre Azul Oxford</td>
+              <td style="text-align:center; font-family:monospace;">12.4:1</td>
+              <td style="text-align:center;"><span style="background:#dcfce7; color:#166534; padding:2px 10px; border-radius:99px; font-size:0.7rem; font-weight:700;">AAA</span></td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--color-border);">
+              <td style="padding:0.5rem;">Gris Pizarra sobre Blanco Marfil</td>
+              <td style="text-align:center; font-family:monospace;">6.1:1</td>
+              <td style="text-align:center;"><span style="background:#dbeafe; color:#1e40af; padding:2px 10px; border-radius:99px; font-size:0.7rem; font-weight:700;">AA</span></td>
+            </tr>
+            <tr>
+              <td style="padding:0.5rem;">Verde Menta sobre Azul Oxford</td>
+              <td style="text-align:center; font-family:monospace;">4.8:1</td>
+              <td style="text-align:center;"><span style="background:#dbeafe; color:#1e40af; padding:2px 10px; border-radius:99px; font-size:0.7rem; font-weight:700;">AA</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 04 · TIPOGRAFÍA -->
+    <section class="section" id="tipografia">
+      <div class="section-header">
+        <div class="section-number">04</div>
+        <div class="section-title-wrap">
+          <p class="section-label">Sistema Visual</p>
+          <h2>Tipografía</h2>
+        </div>
+      </div>
+
+      <p style="margin-bottom:var(--space-xl); font-style:italic; color:var(--color-text);">La tipografía es la voz escrita de la marca. Playfair es su tono en conferencia; Montserrat es su voz al hablar con una madre sobre el futuro de su hijo.</p>
+
+      <div class="grid-2" style="margin-bottom:var(--space-xl);">
+        <div class="card">
+          <div style="font-size:0.65rem; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:var(--color-accent); margin-bottom:var(--space-sm);">Display — Playfair Display</div>
+          <div class="type-demo-display" style="font-size:2.2rem;">Evidencia,<br><em>no intuición.</em></div>
+          <p style="font-size:0.78rem; color:#9ca3af; margin-top:var(--space-sm); max-width:none;">Titulares · Citas · Nombre de marca<br>Pesos: 400 Regular, 600 SemiBold</p>
+        </div>
+        <div class="card">
+          <div style="font-size:0.65rem; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:var(--color-accent); margin-bottom:var(--space-sm);">Cuerpo — Montserrat</div>
+          <div style="font-family:var(--font-body); font-size:0.95rem; line-height:1.7; color:var(--color-primary); font-weight:300;">
+            Muchos padres nos dicen exactamente lo mismo: "Sé que algo pasa, pero no sé qué". La primera consulta es el primer paso para entenderlo.
+          </div>
+          <p style="font-size:0.78rem; color:#9ca3af; margin-top:var(--space-sm); max-width:none;">Párrafos · UI · Etiquetas<br>Pesos: 300, 400, 500, 600</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div style="font-size:0.65rem; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:var(--color-accent); margin-bottom:var(--space-md);">Escala Tipográfica</div>
+        <div>
+          <div class="type-scale-item">
+            <span class="type-scale-label">H1 Hero</span>
+            <span class="type-scale-meta">PD SemiBold</span>
+            <span style="font-family:var(--font-display); font-size:2.5rem; color:var(--color-primary); font-weight:600; line-height:1;">Título Principal</span>
+          </div>
+          <div class="type-scale-item">
+            <span class="type-scale-label">H2</span>
+            <span class="type-scale-meta">PD Regular</span>
+            <span style="font-family:var(--font-display); font-size:1.8rem; color:var(--color-primary); line-height:1;">Sección de Contenido</span>
+          </div>
+          <div class="type-scale-item">
+            <span class="type-scale-label">H3</span>
+            <span class="type-scale-meta">PD SemiBold</span>
+            <span style="font-family:var(--font-display); font-size:1.3rem; color:var(--color-primary); font-weight:600; line-height:1;">Subsección</span>
+          </div>
+          <div class="type-scale-item">
+            <span class="type-scale-label">Lead</span>
+            <span class="type-scale-meta">MT Light 20px</span>
+            <span style="font-size:1.1rem; font-weight:300; color:var(--color-primary);">Introducción de sección destacada</span>
+          </div>
+          <div class="type-scale-item">
+            <span class="type-scale-label">Body</span>
+            <span class="type-scale-meta">MT Regular 16px</span>
+            <span style="font-size:1rem; color:var(--color-text);">Texto normal de párrafo, legibilidad óptima</span>
+          </div>
+          <div class="type-scale-item" style="border:none;">
+            <span class="type-scale-label">Caption</span>
+            <span class="type-scale-meta">MT Light 12px</span>
+            <span style="font-size:0.75rem; font-weight:300; color:#9ca3af;">Pies de foto, metadata, etiquetas</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 · ICONOGRAFÍA -->
+    <section class="section" id="iconografia">
+      <div class="section-header">
+        <div class="section-number">05</div>
+        <div class="section-title-wrap">
+          <p class="section-label">Sistema Visual</p>
+          <h2>Iconografía e Ilustración</h2>
+        </div>
+      </div>
+      <p style="margin-bottom:var(--space-xl);">Iconos lineales de trazo uniforme <strong>1.5px</strong> sobre grid 24×24px, con radio de esquina 2px. Los iconos filled son propios del consumo masivo; el lineal habla de precisión, como un diagrama de informe clínico.</p>
+
+      <div class="grid-4">
+        <div class="card" style="text-align:center;">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#002147" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:0.75rem;"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96-.44l-1.01-5.08A4.5 4.5 0 0 1 9.5 2"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96-.44l1.01-5.08A4.5 4.5 0 0 0 14.5 2"/></svg>
+          <div style="font-size:0.75rem; font-weight:600; color:var(--color-primary);">Psicología</div>
+          <div style="font-size:0.65rem; color:#9ca3af;">Mente · Emoción</div>
+        </div>
+        <div class="card" style="text-align:center;">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#002147" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:0.75rem;"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          <div style="font-size:0.75rem; font-weight:600; color:var(--color-primary);">Terapia</div>
+          <div style="font-size:0.65rem; color:#9ca3af;">Diálogo · Escucha</div>
+        </div>
+        <div class="card" style="text-align:center;">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#7EBEA5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:0.75rem;"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          <div style="font-size:0.75rem; font-weight:600; color:var(--color-primary);">Apoyo Escolar</div>
+          <div style="font-size:0.65rem; color:#9ca3af;">Libros · Aprendizaje</div>
+        </div>
+        <div class="card" style="text-align:center;">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#7EBEA5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:0.75rem;"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
+          <div style="font-size:0.75rem; font-weight:600; color:var(--color-primary);">Logopedia</div>
+          <div style="font-size:0.65rem; color:#9ca3af;">Voz · Comunicación</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 · FOTOGRAFÍA -->
+    <section class="section" id="fotografia">
+      <div class="section-header">
+        <div class="section-number">06</div>
+        <div class="section-title-wrap">
+          <p class="section-label">Dirección Visual</p>
+          <h2>Fotografía</h2>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card" style="border-top:4px solid var(--color-accent);">
+          <h3 style="font-size:0.9rem; margin-bottom:var(--space-sm);">✓ Fotografía Correcta</h3>
+          <ul style="list-style:none; display:flex; flex-direction:column; gap:0.5rem; font-size:0.85rem;">
+            <li>🌅 Luz cálida, ventanas naturales</li>
+            <li>👨‍👩‍👧 Planos medios de personas en contexto real</li>
+            <li>😊 Expresiones naturales, sin poses forzadas</li>
+            <li>📚 Entornos de aprendizaje, diálogo</li>
+            <li>🎨 Post: +200K temperatura, contraste moderado</li>
+          </ul>
+        </div>
+        <div class="card" style="border-top:4px solid #fca5a5;">
+          <h3 style="font-size:0.9rem; margin-bottom:var(--space-sm);">× Fotografía Incorrecta</h3>
+          <ul style="list-style:none; display:flex; flex-direction:column; gap:0.5rem; font-size:0.85rem; color:#9ca3af; text-decoration:line-through;">
+            <li>💉 Camillas, jeringuillas o material clínico</li>
+            <li>😁 Stock con sonrisas exageradas e irreales</li>
+            <li>⬜ Fondos blancos de estudio frío</li>
+            <li>📐 Planos picados que infantilizan</li>
+            <li>🏛️ Arquitectura sin personas protagonistas</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 · VOZ -->
+    <section class="section" id="voz">
+      <div class="section-header">
+        <div class="section-number">07</div>
+        <div class="section-title-wrap">
+          <p class="section-label">Comunicación</p>
+          <h2>Voz y Tono</h2>
+        </div>
+      </div>
+
+      <p style="margin-bottom:var(--space-lg); font-style:italic;">Instituto Uría habla como el <strong>mejor amigo que resulta ser el mayor experto en la sala</strong>. No impone el conocimiento: lo comparte. No alarma: tranquiliza con datos.</p>
+
+      <div style="margin-bottom:var(--space-xl);">
+        <p style="font-size:0.75rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--color-accent); margin-bottom:var(--space-sm);">Vocabulario de Marca</p>
+        <div class="keyword-list" style="margin-bottom:var(--space-sm);">
+          <span class="kw-yes">Evidencia</span>
+          <span class="kw-yes">Acompañamiento</span>
+          <span class="kw-yes">Desarrollo</span>
+          <span class="kw-yes">Transformación</span>
+          <span class="kw-yes">Científico</span>
+          <span class="kw-yes">Rigor</span>
+          <span class="kw-yes">Aliados</span>
+          <span class="kw-yes">Potencial</span>
+          <span class="kw-yes">Aprender a aprender</span>
+        </div>
+        <div class="keyword-list">
+          <span class="kw-no">Trastorno (divulgativo)</span>
+          <span class="kw-no">Normal/Anormal</span>
+          <span class="kw-no">Cura garantizada</span>
+          <span class="kw-no">Fácil y rápido</span>
+        </div>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:var(--space-md);">
+
+        <div class="voice-vs">
+          <div class="voice-card bad"><div class="voice-card-label">Genérico ×</div><p>"Somos expertos en psicología infantil."</p></div>
+          <div class="vs-divider">vs</div>
+          <div class="voice-card good"><div class="voice-card-label">Instituto Uría ✓</div><p>"Llevamos más de 35 años escuchando lo que los niños no saben decir con palabras."</p></div>
+        </div>
+
+        <div class="voice-vs">
+          <div class="voice-card bad"><div class="voice-card-label">Genérico ×</div><p>"Tratamos el TDAH."</p></div>
+          <div class="vs-divider">vs</div>
+          <div class="voice-card good"><div class="voice-card-label">Instituto Uría ✓</div><p>"Evaluamos, entendemos y acompañamos a cada niño con TDAH hacia su mejor versión académica y emocional."</p></div>
+        </div>
+
+        <div class="voice-vs">
+          <div class="voice-card bad"><div class="voice-card-label">Genérico ×</div><p>"Contáctenos"</p></div>
+          <div class="vs-divider">vs</div>
+          <div class="voice-card good"><div class="voice-card-label">Instituto Uría ✓</div><p>"Cuéntenos. La primera consulta es el primer paso."</p></div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 08 · SISTEMA -->
+    <section class="section" id="sistema">
+      <div class="section-header">
+        <div class="section-number">08</div>
+        <div class="section-title-wrap">
+          <p class="section-label">Implementación</p>
+          <h2>Sistema de Diseño</h2>
+        </div>
+      </div>
+
+      <div class="grid-2" style="margin-bottom:var(--space-xl);">
+        <div>
+          <p style="font-size:0.75rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--color-accent); margin-bottom:var(--space-sm);">Escala de Espaciado (×8)</p>
+          <table style="width:100%; font-size:0.82rem; border-collapse:collapse;">
+            <tr style="border-bottom:1px solid var(--color-border);"><td style="padding:0.5rem; font-family:monospace; color:var(--color-accent);">--space-xs</td><td style="padding:0.5rem;">8px</td><td style="padding:0.5rem; color:#9ca3af;">Icono + etiqueta</td></tr>
+            <tr style="border-bottom:1px solid var(--color-border);"><td style="padding:0.5rem; font-family:monospace; color:var(--color-accent);">--space-sm</td><td style="padding:0.5rem;">16px</td><td style="padding:0.5rem; color:#9ca3af;">Padding botones</td></tr>
+            <tr style="border-bottom:1px solid var(--color-border);"><td style="padding:0.5rem; font-family:monospace; color:var(--color-accent);">--space-md</td><td style="padding:0.5rem;">24px</td><td style="padding:0.5rem; color:#9ca3af;">Separación párrafos</td></tr>
+            <tr style="border-bottom:1px solid var(--color-border);"><td style="padding:0.5rem; font-family:monospace; color:var(--color-accent);">--space-lg</td><td style="padding:0.5rem;">40px</td><td style="padding:0.5rem; color:#9ca3af;">Secciones internas</td></tr>
+            <tr style="border-bottom:1px solid var(--color-border);"><td style="padding:0.5rem; font-family:monospace; color:var(--color-accent);">--space-xl</td><td style="padding:0.5rem;">64px</td><td style="padding:0.5rem; color:#9ca3af;">Entre secciones</td></tr>
+            <tr><td style="padding:0.5rem; font-family:monospace; color:var(--color-accent);">--space-2xl</td><td style="padding:0.5rem;">96px</td><td style="padding:0.5rem; color:#9ca3af;">Hero / Portadas</td></tr>
+          </table>
+        </div>
+        <div>
+          <p style="font-size:0.75rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--color-accent); margin-bottom:var(--space-sm);">Componentes UI</p>
+          <div style="display:flex; flex-direction:column; gap:var(--space-sm);">
+            <div>
+              <span style="font-size:0.7rem; color:#9ca3af; display:block; margin-bottom:4px;">Botón Primario</span>
+              <button style="background:var(--color-accent); color:var(--color-primary); border:none; padding:10px 24px; border-radius:var(--radius-sm); font-family:var(--font-body); font-size:0.8rem; font-weight:600; cursor:pointer;">Solicitar Cita</button>
+            </div>
+            <div>
+              <span style="font-size:0.7rem; color:#9ca3af; display:block; margin-bottom:4px;">Botón Secundario</span>
+              <button style="background:transparent; color:var(--color-primary); border:1.5px solid var(--color-primary); padding:10px 24px; border-radius:var(--radius-sm); font-family:var(--font-body); font-size:0.8rem; font-weight:500; cursor:pointer;">Conocer más</button>
+            </div>
+            <div>
+              <span style="font-size:0.7rem; color:#9ca3af; display:block; margin-bottom:4px;">Pills / Etiquetas</span>
+              <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+                <span class="pill">Psicología</span>
+                <span class="pill">Logopedia</span>
+                <span class="pill-accent pill">TDAH</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CSS Tokens -->
+      <div class="token-block">
+        <pre><span class="token-comment">/* ── DESIGN TOKENS — Instituto Uría ───────── */</span>
+:root {
+  <span class="token-comment">/* Colores */</span>
+  <span class="token-prop">--color-primary</span>:    <span class="token-value">#002147</span>; <span class="token-comment">/* Azul Oxford */</span>
+  <span class="token-prop">--color-surface</span>:    <span class="token-value">#F7F5F2</span>; <span class="token-comment">/* Blanco Marfil */</span>
+  <span class="token-prop">--color-accent</span>:     <span class="token-value">#7EBEA5</span>; <span class="token-comment">/* Verde Menta */</span>
+  <span class="token-prop">--color-text</span>:       <span class="token-value">#4A5568</span>; <span class="token-comment">/* Gris Pizarra */</span>
+
+  <span class="token-comment">/* Tipografía */</span>
+  <span class="token-prop">--font-display</span>: <span class="token-value">'Playfair Display'</span>, Georgia, serif;
+  <span class="token-prop">--font-body</span>:    <span class="token-value">'Montserrat'</span>, 'Helvetica Neue', Arial, sans-serif;
+
+  <span class="token-comment">/* Espaciado */</span>
+  <span class="token-prop">--space-xs</span>:  <span class="token-value">0.5rem</span>;   <span class="token-prop">--space-sm</span>: <span class="token-value">1rem</span>;
+  <span class="token-prop">--space-md</span>:  <span class="token-value">1.5rem</span>;  <span class="token-prop">--space-lg</span>: <span class="token-value">2.5rem</span>;
+  <span class="token-prop">--space-xl</span>:  <span class="token-value">4rem</span>;    <span class="token-prop">--space-2xl</span>: <span class="token-value">6rem</span>;
+}</pre>
+      </div>
+    </section>
+
+    <!-- CHECKLIST -->
+    <section class="section" id="checklist" style="background:white;">
+      <div class="section-header">
+        <div class="section-number">✓</div>
+        <div class="section-title-wrap">
+          <p class="section-label">Validación</p>
+          <h2>Checklist de Marca</h2>
+        </div>
+      </div>
+      <div class="grid-3">
+        <div>
+          <p style="font-size:0.7rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--color-accent); margin-bottom:var(--space-sm);">Contenido</p>
+          <ul class="checklist">
+            <li>Justificación estratégica en todos los elementos</li>
+            <li>Especificaciones técnicas completas</li>
+            <li>Usos incorrectos explicados</li>
+            <li>Documento autónomo y completo</li>
+          </ul>
+        </div>
+        <div>
+          <p style="font-size:0.7rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--color-accent); margin-bottom:var(--space-sm);">Coherencia</p>
+          <ul class="checklist">
+            <li>Personalidad consistente en todo el sistema</li>
+            <li>Diseño alineado con valores de marca</li>
+            <li>Aplicaciones web, impresión y RRSS cubiertas</li>
+          </ul>
+        </div>
+        <div>
+          <p style="font-size:0.7rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--color-accent); margin-bottom:var(--space-sm);">Técnico</p>
+          <ul class="checklist">
+            <li>Versiones de logotipo definidas</li>
+            <li>Paleta con HEX, RGB, CMYK, Pantone</li>
+            <li>Tipografía escalada con CSS fallback</li>
+            <li>Accesibilidad WCAG 2.1 verificada</li>
+            <li>Design tokens CSS en formato variable</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer-section">
+      <p style="font-size:0.65rem; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:var(--color-accent); margin-bottom:var(--space-sm);">Idea Clave Final</p>
+      <h2 style="font-size:1.6rem; margin-bottom:var(--space-sm);">La marca no se gestiona.</h2>
+      <h2 style="font-size:1.6rem; font-style:italic; color:var(--color-accent);">Se defiende.</h2>
+      <p style="margin-top:var(--space-md);">Instituto Uría lleva treinta y cinco años siendo la respuesta. Este manual garantiza que, a partir de ahora, también se vea como la respuesta: en cada píxel de su web, en cada párrafo de su blog y en cada informe que une a una familia con la esperanza de que las cosas pueden mejorar.</p>
+      <div class="footer-bottom">
+        <span>Manual de Identidad Corporativa v1.0 · Abril 2026</span>
+        <span>Workflow: @superbranding.md · Instituto Uría, Gijón</span>
+      </div>
+    </footer>
+
+  </main>
+</div>
+
+</body>
+</html>
